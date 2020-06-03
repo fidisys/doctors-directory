@@ -1,6 +1,6 @@
 {
-  "short_name": "React Web",
-  "name": "React Web",
+  "short_name": "Doctor's Directory",
+  "name": "Doctor's Directory",
   "display": "standalone",
   "start_url": ".",
   "theme_color": "#5860AF",

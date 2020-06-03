@@ -1,25 +1,36 @@
 import styled from 'styled-components';
-import { Button } from 'antd';
-import * as palette from '../../styles/variables';
 
 export const Container = styled.div`
   width: 100%;
   height: 100%;
-`;
-
-export const CreateButton = styled(Button)`
-  position: fixed;
-  bottom: 50px;
-  right: 50px;
-  height: 50px;
-  width: 50px;
-  background-color: ${palette.APP_BRAND_COLOR};
-
-  &:focus {
-    background-color: ${palette.APP_BRAND_COLOR};
-  }
-
-  &:hover {
-    background-color: ${palette.APP_BRAND_COLOR};
+  @media (max-width: 768px) {
+    .banner-content {
+      flex-direction: column;
+      align-items: center;
+    }
+    .banner-title {
+      margin: 30px 0px;
+    }
+    .banner-image {
+      margin: 20px 0px;
+    }
+    .tabCheckboxes {
+      height: auto;
+      .ant-checkbox-group-item {
+        width: 100%;
+      }
+    }
+    .searchBox, .inputGroup, .inputItem, .inputZip {
+      width: 100%;
+    }
+    .inputGroup {
+      flex-direction: column;
+    }
+    .inputZip {
+      margin: 20px 0px;
+    }
+    .statesList {
+      column-count: 2;
+    }
   }
 `;

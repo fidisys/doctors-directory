@@ -90,7 +90,7 @@ export const GlobalStyle = createGlobalStyle`
   -webkit-transition: color 0.2s ease-in-out;
   -ms-transition: color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out;
-  text-decoration: underline;
+  text-decoration: none;
   }
   strong {
   font-weight: 600;
@@ -147,20 +147,14 @@ export const GlobalStyle = createGlobalStyle`
   .ant-modal-body {
     padding: 0px !important;
   }
-  .ant-select {
-    width: 100% !important;
-    max-width: 300px !important;
-  }
   .ant-select-selection {
-    min-height: 38px !important;
-    display: flex !important;
-    align-items: center !important;
+    min-height: 46px !important;
     &:focus {
-      border-color: #4255B9 !important;
+      border-color: #15959A !important;
       box-shadow: none !important;
     }
     &:hover {
-      border-color: #4255B9 !important;
+      border-color: #15959A !important;
     }
   }
   .ant-select-dropdown-menu-item {
@@ -222,9 +216,9 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
   .ant-input {
-    height: 36px !important;
+    height:  46px !important;
     &:focus, &:hover {
-      border: 1px solid #5860AF !important;
+      border: 1px solid #15959A !important;
       box-shadow: initial !important;
     }
   }
@@ -233,7 +227,23 @@ export const GlobalStyle = createGlobalStyle`
   }
   .uppy-FileInput-btn {
     background-color: ${palette.APP_BRAND_COLOR};
-    color: ${palette.WHITE_COLOR}
+    color: ${palette.WHITE_COLOR};
     border-radius: none;
+  }
+
+  .header {
+    padding: 10px 35px;
+    h1 {
+      margin: 0;
+    }
+  }
+  .resumeDetailsContainer {
+    padding: 20px !important;
+    .certificationList {
+      list-style: initial !important;
+    }
+    .paragraph {
+      margin-bottom: 15px;
+    }
   }
 `;

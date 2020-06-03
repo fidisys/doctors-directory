@@ -1,4 +1,4 @@
-<h1>React Web Boilerplate</h1>
+<h1>Doctor's Directory</h1>
 <p>One App for all ideas</p>
 <br />
 
