@@ -10,10 +10,6 @@ import { resume } from '../../data/resume';
 import { reviews } from '../../data/reviews';
 import { userDetails } from '../../data/userDetails';
 
-import {
-  ProfileContainer
-} from './styles';
-
 const ProfilePage = props => {
 
   const history = useHistory();
@@ -31,18 +27,16 @@ const ProfilePage = props => {
   };
 
   return (
-    <ProfileContainer>
-      <InfoPage
-        logoClick={toHome}
-        bookingInfo={bookingInfo}
-        ratingListData={rating}
-        requestAppointment={bookAppointment}
-        resumeDetailsData={resume}
-        reviewsListData={reviews}
-        userDetailsData={userDetails}
-        backArrow={backArrow}
-      />
-    </ProfileContainer>
+    <InfoPage
+      logoClick={toHome}
+      bookingInfo={bookingInfo}
+      ratingListData={rating}
+      requestAppointment={bookAppointment}
+      resumeDetailsData={resume}
+      reviewsListData={reviews}
+      userDetailsData={userDetails}
+      backArrow={backArrow}
+    />
   );
 };
 

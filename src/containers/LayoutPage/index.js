@@ -10,10 +10,6 @@ import { patientTypes } from '../../data/patientTypes';
 import { hospitals } from '../../data/hospitals';
 import { states } from '../../data/states';
 
-import {
-  Container
-} from './styles';
-
 const LayoutPage = () => {
 
   const history = useHistory();
@@ -31,19 +27,17 @@ const LayoutPage = () => {
   };
 
   return (
-    <Container>
-      <SearchPage
-        logoClick={toHome}
-        callbackSubmit={showData}
-        categoryData={category}
-        gender={gender}
-        patientTypes={patientTypes}
-        searchData={hospitals}
-        stateClick={getState}
-        states={states}
-        count={48}
-      />
-    </Container>
+    <SearchPage
+      logoClick={toHome}
+      callbackSubmit={showData}
+      categoryData={category}
+      gender={gender}
+      patientTypes={patientTypes}
+      searchData={hospitals}
+      stateClick={getState}
+      states={states}
+      count={48}
+    />
   );
 };
 

@@ -9,10 +9,6 @@ import { gender } from '../../data/gender';
 import { patientTypes } from '../../data/patientTypes';
 import { specialities } from '../../data/specialities';
 
-import {
-  ResultsContainer
-} from './styles';
-
 const Results = () => {
 
   const history = useHistory();
@@ -26,16 +22,14 @@ const Results = () => {
   };
 
   return (
-    <ResultsContainer>
-      <SearchResult
-        logoClick={toHome}
-        gender={gender}
-        patientTypes={patientTypes}
-        providerCategory={provider}
-        speciality={specialities}
-        viewProfileClick={viewProfile}
-      />
-    </ResultsContainer>
+    <SearchResult
+      logoClick={toHome}
+      gender={gender}
+      patientTypes={patientTypes}
+      providerCategory={provider}
+      speciality={specialities}
+      viewProfileClick={viewProfile}
+    />
   );
 };
 
