@@ -1,0 +1,83 @@
+[
+  {
+    "category": "Dentistry",
+    "categoryValue": "dentistry",
+    "key": 1,
+    "speciality": [
+      {
+        "key": 1,
+        "label": "General Dentist",
+        "value": "GD"
+      },
+      {
+        "key": 2,
+        "label": "Endodontist",
+        "value": "Endodontist"
+      },
+      {
+        "key": 3,
+        "label": "Orthodontist",
+        "value": "Orthodontist"
+      },
+      {
+        "key": 4,
+        "label": "Periodontist",
+        "value": "Periodontist"
+      }
+    ]
+  },
+  {
+    "category": "Physicians",
+    "categoryValue": "physician",
+    "key": 2,
+    "speciality": [
+      {
+        "key": 1,
+        "label": "Obstetrician/Gynecologist",
+        "value": "GYN"
+      },
+      {
+        "key": 2,
+        "label": "Surgeon",
+        "value": "Surgeon"
+      },
+      {
+        "key": 3,
+        "label": "Pediatrician",
+        "value": "Pediatrician"
+      },
+      {
+        "key": 4,
+        "label": "Cardiologist",
+        "value": "Cardiologist"
+      },
+      {
+        "key": 5,
+        "label": "Dermatologist",
+        "value": "Dermatologist"
+      }
+    ]
+  },
+  {
+    "category": "Other Healthcare Providers",
+    "categoryValue": "HCP",
+    "key": 3,
+    "speciality": [
+      {
+        "key": 1,
+        "label": "Nurses",
+        "value": "Nurses"
+      },
+      {
+        "key": 2,
+        "label": "Pharmacists",
+        "value": "Pharmacists"
+      },
+      {
+        "key": 3,
+        "label": "Therapists",
+        "value": "Therapists"
+      }
+    ]
+  }
+]

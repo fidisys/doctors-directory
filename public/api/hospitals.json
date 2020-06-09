@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Mercy Hospital",
+    "value": "MH"
+  },
+  {
+    "label": "Kindred Hospital Los Angeles",
+    "value": "KHLS"
+  },
+  {
+    "label": "University of Missouri Hospitals and Clinic",
+    "value": "UMHC"
+  },
+  {
+    "label": "Mayo Clinic Hospital",
+    "value": "MCH"
+  },
+  {
+    "label": "Cleveland Clinic",
+    "value": "CC"
+  },
+  {
+    "label": "The Johns Hopkins Hospital",
+    "value": "JHH"
+  }
+]

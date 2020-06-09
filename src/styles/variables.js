@@ -1,6 +1,6 @@
 // fonts
-export const FONT_FAMILY = 'Roboto, sans-serif';
-export const CONTENT_FONT_FAMILY = 'Open Sans, sans-serif'
+export const FONT_FAMILY = 'Lato, sans-serif';
+export const CONTENT_FONT_FAMILY = 'Lato, sans-serif'
 
 // colors
 export const WHITE_COLOR = '#FFFFFF';
