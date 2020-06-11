@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fidisys-oss/design-system": "^1.0.1",
+    "@fidisys-oss/design-system": "^1.0.2",
     "@uppy/core": "^1.6.0",
     "@uppy/file-input": "^1.4.0",
     "@uppy/react": "^1.4.0",
