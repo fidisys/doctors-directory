@@ -5,32 +5,64 @@ import Interceptor from './interceptor';
 
 const request = new Interceptor();
 
-export const createData = async (data, success, error) => {
+export const allData = async success => {
   try {
-    const response = await request.post(`${BASE_URL}${APIURL}`, data);
-    success(response.data.data);
-  } catch (err) {
-    if (err.resposne && err.response.status === 400) {
-      message.warning(err.response.data.errors.name[0]);
-    } else {
-      logger(err);
-    }
-  }
-};
-
-export const getAllDetails = async success => {
-  try {
-    const response = await request.get(`${BASE_URL}${APIURL}?per_page=1000`);
-    success(response.data.data);
+    const response = await request.get(`../../api/allData.json`);
+    success(response);
   } catch (err) {
     logger(err);
   }
 };
 
-export const getDetailsById = async (id, success) => {
+export const allCategories = async success => {
   try {
-    const response = await request.get(`${BASE_URL}${APIURL}/${id}/?per_page=1000`);
-    success(response.data.data);
+    const response = await request.get(`../../api/category.json`);
+    success(response);
+  } catch (err) {
+    logger(err);
+  }
+};
+
+export const allGenderTypes = async success => {
+  try {
+    const response = await request.get(`../../api/gender.json`);
+    success(response);
+  } catch (err) {
+    logger(err);
+  }
+};
+
+export const allHospitals = async success => {
+  try {
+    const response = await request.get(`../../api/hospitals.json`);
+    success(response);
+  } catch (err) {
+    logger(err);
+  }
+};
+
+export const allPatientTypes = async success => {
+  try {
+    const response = await request.get(`../../api/patientTypes.json`);
+    success(response);
+  } catch (err) {
+    logger(err);
+  }
+};
+
+export const allStates = async success => {
+  try {
+    const response = await request.get(`../../api/states.json`);
+    success(response);
+  } catch (err) {
+    logger(err);
+  }
+};
+
+export const providerCategory = async success => {
+  try {
+    const response = await request.get(`../../api/providerCategory.json`);
+    success(response);
   } catch (err) {
     logger(err);
   }

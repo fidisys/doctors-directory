@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 import * as palette from './variables';
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,500,700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
   @-ms-viewport {
   width: device-width;
   }
@@ -239,11 +239,18 @@ export const GlobalStyle = createGlobalStyle`
   }
   .resumeDetailsContainer {
     padding: 20px !important;
-    .certificationList {
-      list-style: initial !important;
-    }
     .paragraph {
       margin-bottom: 15px;
     }
+  }
+  .cardContent {
+    img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+    }
+  }
+  .statesList {
+    column-count: 2;
   }
 `;

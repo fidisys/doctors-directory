@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Physicians",
+    "value": "physician"
+  },
+  {
+    "label": "Dentistry",
+    "value": "dentistry"
+  },
+  {
+    "label": "Other Healthcare Providers",
+    "value": "HCP"
+  }
+]
