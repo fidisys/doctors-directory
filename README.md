@@ -53,3 +53,7 @@ You will also see any lint errors in the console.
 ### `npm run build`
 
 Builds the app folder for production to the `build` folder.<br>
+
+## Deploy
+
+ Deployed using [netlify](https://www.netlify.com/)
