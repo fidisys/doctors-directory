@@ -13,13 +13,17 @@ import { allData, allCategories, providerCategory, allGenderTypes, allPatientTyp
 const Results = (props) => {
 
   const location = useLocation();
+  const history = useHistory();
 
   const query = new URLSearchParams(location.search);
   const paramField = query.get('state');
 
-  const history = useHistory();
-
+  //loaders
   const[loader, setLoader] = useState(true);
+  const[allCatLoading, setAllCatLoading] = useState(true);
+  const[providerLoading, setProviderLoading] = useState(true);
+  const[genderLoading, setGenderLoading] = useState(true);
+  const[patientsLoading, setPatientsLoading] = useState(true);
 
   const [formValues, setFormValues] = useState({
     categoryValue: [],
@@ -32,10 +36,10 @@ const Results = (props) => {
     state: []
   });
 
+  const [count, setCount] = useState(0);
   const [categoryHeading, setCategoryHeading] = useState('Results');
 
   const [allDataDetails, setAllDataDetails] = useState([]);
-
   const [categoriesData, setCategoriesData] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
   const [patientTypesData, setPatientTypesData] = useState([]);
@@ -72,6 +76,7 @@ const Results = (props) => {
     allData(
       response => {
         setAllDataDetails(response.data);
+        setLoader(false);
       },
       error => {
         console.log('error');
@@ -80,6 +85,13 @@ const Results = (props) => {
     allCategories(
       response => {
         setCategoriesData(response.data);
+        if(response.data && response.data.length > 0) {
+          response.data.forEach(allCat => {
+            speciality[allCat.categoryValue] = allCat.speciality;
+            setSpeciality(speciality);
+          });
+        }
+        setAllCatLoading(false);
       },
       error => {
         console.log('error');
@@ -88,6 +100,7 @@ const Results = (props) => {
     providerCategory(
       response => {
         setCategoryData(response.data);
+        setProviderLoading(false);
       },
       error => {
         console.log('error');
@@ -96,6 +109,7 @@ const Results = (props) => {
     allGenderTypes(
       response => {
         setGenderData(response.data);
+        setGenderLoading(false);
       },
       error => {
         console.log('error');
@@ -104,32 +118,19 @@ const Results = (props) => {
     allPatientTypes(
       response => {
         setPatientTypesData(response.data);
+        setPatientsLoading(false);
       },
       error => {
         console.log('error');
       },
     );
-    setLoader(false);
   }, []);
 
   useEffect(() => {
-    //specialities
-    if (categoriesData && categoryData) {
-      categoryData.forEach(cat => {
-        categoriesData.forEach(allCat => {
-          if(cat.value === allCat.categoryValue) {
-            speciality[cat.value] = allCat.speciality;
-            setSpeciality(speciality);
-          }
-        });
-      });
-    }
     if(formValues) {
       getData();
     }
   }, [categoryData, formValues]);
-
-  const [count, setCount] = useState(0);
 
   //filter
   const[filteredArr, setFilteredArr] = useState([]);
@@ -183,7 +184,6 @@ const Results = (props) => {
     });
 
     setCategoryHeading(option.props.children);
-
   };
 
   const changeSpeciality = (value, option) => {
@@ -237,7 +237,6 @@ const Results = (props) => {
   };
 
   //results list
-
   const sortOptions = [
     {
       value: 'asc',
@@ -276,7 +275,7 @@ const Results = (props) => {
   return (
     <Fragment>
     {
-      !loader && 
+      (!loader && !allCatLoading && !providerLoading && !genderLoading && !patientsLoading) &&
       <ResultPage
         header={<Header content={<Logo logo="https://i.ibb.co/NmLZ0SH/logo.png" heading="DOCTORS.IO" subHeading="Dedicated doctors" onClick={toHome} />} />}
         sidebar={

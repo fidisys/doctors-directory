@@ -17,20 +17,26 @@ const LayoutPage = () => {
   const[count, setCount] = useState(null);
 
   const [allDataDetails, setAllDataDetails] = useState([]);
-
   const [categoriesData, setCategoriesData] = useState([]);
   const [hospitalsData, setHospitalsData] = useState([]);
   const [patientTypesData, setPatientTypesData] = useState([]);
   const [genderData, setGenderData] = useState([]);
   const [states, setStates] = useState([]);
 
+  //loaders
   const[loader, setLoader] = useState(true);
+  const[allCatLoading, setAllCatLoading] = useState(true);
+  const[hospitalsLoading, setHospitalsLoading] = useState(true);
+  const[genderLoading, setGenderLoading] = useState(true);
+  const[patientsLoading, setPatientsLoading] = useState(true);
+  const[statesLoading, setStatesLoading] = useState(true);
 
   useEffect(() => {
     allData(
       response => {
         setAllDataDetails(response.data);
         setCount(response.data.length);
+        setLoader(false);
       },
       error => {
         console.log('error');
@@ -39,6 +45,7 @@ const LayoutPage = () => {
     allCategories(
       response => {
         setCategoriesData(response.data);
+        setAllCatLoading(false);
       },
       error => {
         console.log('error');
@@ -47,6 +54,7 @@ const LayoutPage = () => {
     allGenderTypes(
       response => {
         setGenderData(response.data);
+        setGenderLoading(false);
       },
       error => {
         console.log('error');
@@ -55,6 +63,7 @@ const LayoutPage = () => {
     allHospitals(
       response => {
         setHospitalsData(response.data);
+        setHospitalsLoading(false);
       },
       error => {
         console.log('error');
@@ -63,6 +72,7 @@ const LayoutPage = () => {
     allPatientTypes(
       response => {
         setPatientTypesData(response.data);
+        setPatientsLoading(false);
       },
       error => {
         console.log('error');
@@ -71,15 +81,30 @@ const LayoutPage = () => {
     allStates(
       response => {
         setStates(response.data);
+        setStatesLoading(false);
       },
       error => {
         console.log('error');
       },
     );
-    setLoader(false);
   }, []);
 
   //filter
+  const[filter, setFilter] = useState({
+    categoryValue: [],
+    specialityValue: [],
+    hospitalValue: [],
+    city: [],
+    zip: [],
+    patientTypeValue: [],
+    genderValue: []
+  });
+
+  useEffect(() => {
+    if(filter) {
+      getData();
+    }
+  }, [filter]);
 
   const getData = () => {
     const query = buildFilter();
@@ -109,22 +134,6 @@ const LayoutPage = () => {
     return filteredData;
   };
 
-  const[filter, setFilter] = useState({
-    categoryValue: [],
-    specialityValue: [],
-    hospitalValue: [],
-    city: [],
-    zip: [],
-    patientTypeValue: [],
-    genderValue: []
-  });
-
-  useEffect(() => {
-    if(filter) {
-      getData();
-    }
-  }, [filter]);
-
   const getCategories = values => {
     let category = [];
     let speciality = [];
@@ -137,7 +146,6 @@ const LayoutPage = () => {
         category = [];
       }
     })
-
     setFilter({
       ...filter,
       categoryValue: category,
@@ -174,7 +182,6 @@ const LayoutPage = () => {
     } else {
       newArr = [];
     }
-
     setFilter({
       ...filter,
       zip: newArr
@@ -211,7 +218,7 @@ const LayoutPage = () => {
 
   return (
     <Fragment>
-      { !loader &&
+      { (!loader && !allCatLoading && !hospitalsLoading && !patientsLoading && !genderLoading && !statesLoading) &&
         <SearchPage
           logoClick={toHome}
           callbackSubmit={showAllData}
